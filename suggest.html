@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suggest Content — Pixora</title>
+  <meta name="description" content="Suggest a video or unique image for the Pixora feed. Every suggestion is reviewed by the team.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237C3AED'/%3E%3Cstop offset='.55' stop-color='%23EC4899'/%3E%3Cstop offset='1' stop-color='%23F97316'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cpath d='M26 20l20 12-20 12z' fill='white'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=2">
+</head>
+<body data-page="suggest">
+
+  <!-- ===== NAV ===== -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="index.html">
+        <span class="mark">
+          <svg width="20" height="20" viewBox="0 0 64 64" fill="none"><path d="M26 20l20 12-20 12z" fill="#fff"/></svg>
+        </span>
+        <span class="word">Pixora</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#feed">Videos</a>
+        <a href="index.html#feed">Images</a>
+        <a href="suggest.html" class="active">Suggest</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+      <div class="search">
+        <span class="icon">🔍</span>
+        <input id="searchInput" type="text" placeholder="Search videos &amp; images...">
+      </div>
+      <a class="btn btn-grad" href="suggest.html">✨ Suggest Content</a>
+      <button class="hamburger" aria-label="Menu">☰</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">🏠 Home</a>
+      <a href="index.html#feed">🎬 Videos &amp; Images</a>
+      <a href="suggest.html">✨ Suggest Content</a>
+      <a href="admin.html">⚙️ Admin Panel</a>
+    </div>
+  </header>
+
+  <!-- ===== TOP AD ===== -->
+  <div class="container">
+    <div class="ad ad-top" data-ad="top"></div>
+  </div>
+
+  <!-- ===== PAGE HERO ===== -->
+  <div class="container">
+    <section class="page-hero">
+      <span class="em">💡</span>
+      <h1>Suggest Content for Pixora</h1>
+      <p>Found an amazing video or a unique image? Send it to us! Our team reviews every suggestion — if it fits, your pick goes live on the main feed.</p>
+    </section>
+  </div>
+
+  <!-- ===== FORM ===== -->
+  <div class="container">
+    <section class="form-card">
+      <h2>✨ Send Your Suggestion</h2>
+      <p class="sub">Fill in the details below. All fields marked with * are required.</p>
+      <form id="suggestForm">
+        <div class="form-grid">
+          <div class="field">
+            <label>Your Name <span class="req">*</span></label>
+            <input id="sName" type="text" placeholder="e.g. Rahim Ahmed" required>
+          </div>
+          <div class="field">
+            <label>Email (optional)</label>
+            <input id="sEmail" type="email" placeholder="you@example.com">
+          </div>
+          <div class="field full">
+            <label>Content Link <span class="req">*</span></label>
+            <input id="sLink" type="url" placeholder="https://youtube.com/watch?v=... or https://image-link.jpg" required>
+            <span class="hint">Paste a YouTube link for videos, or a direct image link for images.</span>
+          </div>
+          <div class="field">
+            <label>Content Type</label>
+            <select id="sType">
+              <option value="video">🎬 Video</option>
+              <option value="image">🖼️ Image</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Category</label>
+            <select id="sCategory">
+              <option value="game">🎮 Gaming</option>
+              <option value="anime">🌸 Anime</option>
+              <option value="news">📰 News</option>
+              <option value="music">🎵 Music</option>
+              <option value="movies">🎬 Movies</option>
+              <option value="sports">⚽ Sports</option>
+              <option value="tech">💻 Tech</option>
+              <option value="travel">✈️ Travel</option>
+              <option value="food">🍜 Food</option>
+              <option value="art">🎨 Art</option>
+              <option value="city">🌃 City</option>
+              <option value="nature">🌿 Nature</option>
+              <option value="pets">🐶 Pets</option>
+              <option value="fun" selected>🎉 Fun</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label>Why should we post it? (optional)</label>
+            <textarea id="sMessage" placeholder="Tell us what makes this content special..."></textarea>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-grad" type="submit">🚀 Send Suggestion</button>
+          <a class="btn btn-soft" href="index.html">← Back to Feed</a>
+        </div>
+      </form>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h4>Send Your Pick</h4>
+        <p>Paste a video or image link with a short note. Takes less than a minute.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h4>Team Review</h4>
+        <p>Our team checks every suggestion in the admin panel and picks the best ones.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h4>It Goes Live</h4>
+        <p>Approved content appears on the Pixora feed for everyone to enjoy.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER AD ===== -->
+  <div class="container">
+    <div class="ad ad-footer" data-ad="bottom"></div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-line">
+            <span class="mark" style="width:36px;height:36px;border-radius:11px;background:var(--grad);display:grid;place-items:center">
+              <svg width="18" height="18" viewBox="0 0 64 64"><path d="M26 20l20 12-20 12z" fill="#fff"/></svg>
+            </span>
+            <span class="word">Pixora</span>
+          </div>
+          <p>A bright, colorful platform for unique videos and images. Fresh, original and made for everyone — watch, enjoy and share.</p>
+        </div>
+        <div>
+          <h5>Explore</h5>
+          <a href="index.html">Home</a>
+          <a href="index.html#feed">Videos</a>
+          <a href="index.html#feed">Images</a>
+        </div>
+        <div>
+          <h5>Community</h5>
+          <a href="suggest.html">Suggest Content</a>
+          <a href="admin.html">Admin Panel</a>
+        </div>
+        <div>
+          <h5>Support</h5>
+          <a href="suggest.html">Contact</a>
+          <a href="suggest.html">Report Content</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Pixora. All rights reserved.</span>
+        <span>Made with <span class="heart">❤️</span> for creators everywhere</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== AD NETWORK SCRIPTS (Popunder + Social Bar) ===== -->
+  <script src="https://pl31531331.profitableratecpmnetwork.com/99/9a/26/999a264d2510bd94baad1bdb57d973aa.js"></script>
+  <script src="https://pl31531333.profitableratecpmnetwork.com/e1/32/b3/e132b340b61e94324cd7dd44baf413a9.js"></script>
+
+  <script src="assets/js/data.js?v=2"></script>
+  <script src="assets/js/app.js?v=2"></script>
+</body>
+</html>
